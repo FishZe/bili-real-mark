@@ -122,13 +122,13 @@ func getLongReview(mediaId int64, cursor int64) *LongReviewResp {
 //	@Description: 获取所有长评
 //	@param mediaId int64 媒体id
 //	@param respChan chan *LongReview 长评通道
-func GetAllLongReview(mediaId int64, respChan chan *LongReview) {
+func GetAllLongReview(mediaId int64, respChan chan LongReview) {
 	nowCursor := int64(0)
 	for {
 		resp := getLongReview(mediaId, nowCursor)
 		if resp.Code == 0 {
 			for _, v := range resp.Data.List {
-				respChan <- &v
+				respChan <- v
 			}
 		}
 		if resp.Data.Next == 0 {
@@ -137,7 +137,7 @@ func GetAllLongReview(mediaId int64, respChan chan *LongReview) {
 		nowCursor = resp.Data.Next
 		time.Sleep(time.Millisecond * 100)
 	}
-	respChan <- &LongReview{Mid: -1}
+	respChan <- LongReview{Mid: -1}
 }
 
 // GetAllShortReview
@@ -145,13 +145,13 @@ func GetAllLongReview(mediaId int64, respChan chan *LongReview) {
 //	@Description: 获取所有短评
 //	@param mediaId int64 媒体id
 //	@param respChan chan *ShortReview 短评通道
-func GetAllShortReview(mediaId int64, respChan chan *ShortReview) {
+func GetAllShortReview(mediaId int64, respChan chan ShortReview) {
 	nowCursor := int64(0)
 	for {
 		resp := getShortReview(mediaId, nowCursor)
 		if resp.Code == 0 {
 			for _, v := range resp.Data.List {
-				respChan <- &v
+				respChan <- v
 			}
 		}
 		if resp.Data.Next == 0 {
@@ -160,7 +160,7 @@ func GetAllShortReview(mediaId int64, respChan chan *ShortReview) {
 		nowCursor = resp.Data.Next
 		time.Sleep(time.Millisecond * 100)
 	}
-	respChan <- &ShortReview{Mid: -1}
+	respChan <- ShortReview{Mid: -1}
 }
 
 // GetReviewSum

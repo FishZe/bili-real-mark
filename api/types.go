@@ -11,31 +11,11 @@ type ShortReviewResp struct {
 }
 
 type ShortReview struct {
-	Author struct {
-		Avatar string `json:"avatar"`
-		Mid    int    `json:"mid"`
-		Uname  string `json:"uname"`
-		Vip    struct {
-			AvatarSubscriptUrl string `json:"avatar_subscript_url"`
-			NicknameColor      string `json:"nickname_color"`
-			ThemeType          int    `json:"themeType"`
-			VipStatus          int    `json:"vipStatus"`
-			VipType            int    `json:"vipType"`
-		} `json:"vip"`
-		VipLabel struct {
-			BgColor     string `json:"bg_color"`
-			BgStyle     int    `json:"bg_style"`
-			BorderColor string `json:"border_color"`
-			LabelTheme  string `json:"label_theme"`
-			Path        string `json:"path"`
-			Text        string `json:"text"`
-			TextColor   string `json:"text_color"`
-		} `json:"vip_label"`
-	} `json:"author"`
+	Author   Author `json:"author"`
 	Content  string `json:"content"`
-	Ctime    int    `json:"ctime"`
+	Ctime    int64  `json:"ctime"`
 	MediaId  int    `json:"media_id"`
-	Mid      int    `json:"mid"`
+	Mid      int64  `json:"mid"`
 	Mtime    int    `json:"mtime"`
 	Progress string `json:"progress"`
 	ReviewId int    `json:"review_id"`
@@ -60,35 +40,37 @@ type LongReviewResp struct {
 	Message string `json:"message"`
 }
 
+type Author struct {
+	Avatar string `json:"avatar"`
+	Mid    int64  `json:"mid"`
+	Uname  string `json:"uname"`
+	Vip    struct {
+		AvatarSubscriptUrl string `json:"avatar_subscript_url"`
+		NicknameColor      string `json:"nickname_color"`
+		ThemeType          int    `json:"themeType"`
+		VipStatus          int    `json:"vipStatus"`
+		VipType            int    `json:"vipType"`
+	} `json:"vip"`
+	VipLabel struct {
+		BgColor     string `json:"bg_color"`
+		BgStyle     int    `json:"bg_style"`
+		BorderColor string `json:"border_color"`
+		LabelTheme  string `json:"label_theme"`
+		Path        string `json:"path"`
+		Text        string `json:"text"`
+		TextColor   string `json:"text_color"`
+	} `json:"vip_label"`
+}
+
 type LongReview struct {
-	ArticleId int `json:"article_id"`
-	Author    struct {
-		Avatar string `json:"avatar"`
-		Mid    int    `json:"mid"`
-		Uname  string `json:"uname"`
-		Vip    struct {
-			AvatarSubscriptUrl string `json:"avatar_subscript_url"`
-			NicknameColor      string `json:"nickname_color"`
-			ThemeType          int    `json:"themeType"`
-			VipStatus          int    `json:"vipStatus"`
-			VipType            int    `json:"vipType"`
-		} `json:"vip"`
-		VipLabel struct {
-			BgColor     string `json:"bg_color"`
-			BgStyle     int    `json:"bg_style"`
-			BorderColor string `json:"border_color"`
-			LabelTheme  string `json:"label_theme"`
-			Path        string `json:"path"`
-			Text        string `json:"text"`
-			TextColor   string `json:"text_color"`
-		} `json:"vip_label"`
-	} `json:"author"`
+	ArticleId int    `json:"article_id"`
+	Author    Author `json:"author"`
 	Content   string `json:"content"`
-	Ctime     int    `json:"ctime"`
+	Ctime     int64  `json:"ctime"`
 	IsOrigin  int    `json:"is_origin"`
 	IsSpoiler int    `json:"is_spoiler"`
 	MediaId   int    `json:"media_id"`
-	Mid       int    `json:"mid"`
+	Mid       int64  `json:"mid"`
 	Mtime     int    `json:"mtime"`
 	Progress  string `json:"progress,omitempty"`
 	ReviewId  int    `json:"review_id"`
