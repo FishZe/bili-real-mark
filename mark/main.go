@@ -73,6 +73,7 @@ func (m *Mark) getShortMark(over chan bool) {
 			case v := <-xc:
 				if v.Mid == -1 {
 					done <- true
+					return
 				}
 				t := time.Unix(v.Ctime, 0).Format("2006-01-02 15:04:05")
 				nowReview := Review{
@@ -112,6 +113,7 @@ func (m *Mark) getLongMark(over chan bool) {
 			case v := <-xc:
 				if v.Mid == -1 {
 					done <- true
+					return
 				}
 				t := time.Unix(v.Ctime, 0).Format("2006-01-02 15:04:05")
 				longReview := Review{
