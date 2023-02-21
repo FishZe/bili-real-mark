@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Bili-TrueMark/mark"
+	"Bili-RealMark/mark"
 )
 
 func main() {

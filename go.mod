@@ -1,4 +1,4 @@
-module Bili-TrueMark
+module Bili-RealMark
 
 go 1.19
 
