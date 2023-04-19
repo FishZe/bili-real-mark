@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Bili-RealMark/mark"
+	"bili-real-mark/mark"
 )
 
 func main() {

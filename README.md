@@ -1,4 +1,4 @@
-# Bili-TrueMark
+# Bili-Real-Mark
 
 哔哩哔哩真实评分获取工具
 

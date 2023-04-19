@@ -1,7 +1,7 @@
 package mark
 
 import (
-	"Bili-RealMark/api"
+	"bili-real-mark/api"
 	"fmt"
 	"github.com/schollz/progressbar/v3"
 	"time"

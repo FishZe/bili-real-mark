@@ -1,4 +1,4 @@
-module Bili-RealMark
+module bili-real-mark
 
 go 1.19
 
