@@ -2,8 +2,10 @@ package mark
 
 import (
 	"bili-real-mark/api"
+	"bufio"
 	"fmt"
 	"github.com/schollz/progressbar/v3"
+	"os"
 	"time"
 )
 
@@ -250,6 +252,11 @@ func (m *Mark) Start() {
 func Cmd() {
 	m := Mark{}
 	fmt.Println("请输入影视/番剧名称：")
-	_, _ = fmt.Scanln(&m.Name)
+	reader := bufio.NewReader(os.Stdin)
+	result, _, err := reader.ReadLine()
+	if err != nil {
+		fmt.Println("获取失败")
+	}
+	m.Name = string(result)
 	m.Start()
 }
